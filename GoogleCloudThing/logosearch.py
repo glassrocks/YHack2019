@@ -51,23 +51,33 @@ def logo_find_uri(uri):
     response = client.logo_detection(image=image)
     logos = response.logo_annotations
 
-
-    print('Logos:')
+    logo_list = {}
+    logo_desc = []
     for logo in logos:
-        if logo.score > 0.7:
-            print(logo.description)
+        if logo.description and logo.score > 0.7:
+            logo_desc.append(logo.description)
         else:
             print("score too low! ommitting image")
+            return None
+    if not logos:
+        print('no logos found')
+        return None
+    else:
+        logo_list[uri] = logo_desc
+        print(f"Logo dict: {logo_list}")
+        return logo_list
 
 
 def instasearch(url):
     #insta_url = input("Enter the instagram url you would like to analyze:")
     insta_url = url
     insta_posts = instacrawl.find_posts(insta_url)
+    image_list = []
     for post in insta_posts:
         if not post.is_video:
-            logo_find_uri(post.url)
+            image_list.append(logo_find_uri(post.url))
             print("\n")
+    return image_list
 
     '''    
     image_folder = os.getcwd() + "/images/"
