@@ -1,3 +1,8 @@
 """ Main python file for our project """
 
-set
+def main():
+
+
+
+if __name__ == "__main__":
+    main()
