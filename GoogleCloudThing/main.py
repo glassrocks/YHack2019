@@ -20,7 +20,7 @@ def apiinstaquery(url):
         if logo is None:
             logo_return.remove(logo)
     print(f'2: {logo_return}')
-    return render_template('displayimages.html')
+    return render_template('table-template.html', table=logo_return)
 
 if __name__ == '__main__':
     app.run()
