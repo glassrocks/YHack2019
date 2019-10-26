@@ -54,20 +54,22 @@ def logo_find_uri(uri):
 
     print('Logos:')
     for logo in logos:
-        if logo.score > 0.8:
+        if logo.score > 0.7:
             print(logo.description)
         else:
             print("score too low! ommitting image")
 
 
-def main():
-    insta_url = input("Enter the instagram url you would like to analyze:")
+def instasearch(url):
+    #insta_url = input("Enter the instagram url you would like to analyze:")
+    insta_url = url
     insta_posts = instacrawl.find_posts(insta_url)
     for post in insta_posts:
-        logo_find_uri(post.url)
-        print("\n")
+        if not post.is_video:
+            logo_find_uri(post.url)
+            print("\n")
 
-
+    '''    
     image_folder = os.getcwd() + "/images/"
     current_files = []
     new_files = []
@@ -78,7 +80,8 @@ def main():
                 print("New image found: {0}".format(image))
                 logo_find(image_folder + image)
         sleep(3)
+    '''
 
 
 if __name__ == "__main__":
-    main()
+    instasearch()
