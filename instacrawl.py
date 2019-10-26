@@ -7,7 +7,7 @@ def find_posts(username):
     # Load instaloader
     IL = instaloader.Instaloader()
     # Login to Instagram
-    IL.login("USERNAME", "PASSWORD")
+    #IL.login("USERNAME", "PASSWORD")
     # Get profile from a username
     profile = instaloader.Profile.from_username(IL.context, username)
 
@@ -16,7 +16,7 @@ def find_posts(username):
 
 
 if __name__ == "__main__":
-    posts = find_posts("USERNAME")
+    posts = find_posts("ian_costa18")
 
     for post in posts:
         print(post.url)
