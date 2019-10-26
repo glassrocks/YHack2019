@@ -2,7 +2,7 @@
 import os
 from time import sleep
 
-def image_finder(directory=os.getcwd(), file_list=[]):
+def image_finder(directory, file_list=[]):
     """ Finds new files in a directory,
         returns a tuple: (found_files[], file_list[]) """
 
@@ -27,23 +27,37 @@ def image_finder(directory=os.getcwd(), file_list=[]):
             # Add it to the new files list
             new_files.append(file)
 
-    # If new files list is empty
+    '''# If new files list is empty
     if not new_files:
         # Return no new files found and the current file list
-        return (None, cur_files)
+        return (None, cur_files)'''
 
     # If there is new files, return them and the current files list
     return (new_files, cur_files)
 
 
 
-if __name__ == "__main__":
+'''if __name__ == "__main__":
     current_files = []
+    new_files = []
     while(True):
         new_files, current_files = image_finder(
-            directory="C:\\Users\\Ian\\Pictures\\Camera Roll",
             file_list=current_files)
         if new_files:
-            print(f"{new_files=}")
-        print(f"{current_files=}")
+            print("{0}".format(new_files))
+        #print("{0}".format(current_files))
+        sleep(5)'''
+
+# not used with integration with main.py
+if __name__ == "__main__":
+    current_files = []
+    new_files = []
+    image_folder = os.getcwd() + "/images"
+    while(True):
+        new_files, current_files = image_finder(
+            directory=image_folder,
+            file_list=current_files)
+        if new_files:
+            print("{0}".format(new_files))
+        #print("{0}".format(current_files))
         sleep(5)
