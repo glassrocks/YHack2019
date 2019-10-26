@@ -1,7 +1,7 @@
 """ Main python file for our project """
 
 def main():
-
+    print("Hello World")
 
 
 if __name__ == "__main__":
