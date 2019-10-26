@@ -19,7 +19,7 @@ def download(posts):
     print('Done')
 
 def main():
-    download(get_posts('yungjesusofficial'))
+    download(get_posts('hack_jwu'))
     print('Prog done')
 
 if __name__ == '__main__':
