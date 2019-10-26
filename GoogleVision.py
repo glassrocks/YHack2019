@@ -1,23 +1,19 @@
-import io
-import os
-from google.cloud import vision
-from google.cloud.vision import types
-from google.cloud.vision import type
-client = vision.ImageAnnotatorClient()
-# we would have to change the bottom part we could have some sort of input shit
-file_name = os.path.join(
-    os.path.dirname(__file__),
-    'car.jpg')
+def detect_logos(path):
+    """Detects logos in the file."""
+    from google.cloud import vision
+    import io
+    client = vision.ImageAnnotatorClient()
 
-with io.open(file_name,"rb") as image_file:
+    with io.open(path, 'rb') as image_file:
         content = image_file.read()
 
-image = type.Image(content=content)
+    image = vision.types.Image(content=content)
 
-response = client.label_detection(image=image)
+    response = client.logo_detection(image=image)
+    logos = response.logo_annotations
+    print('Logos:')
 
-labels = response.label_annotations
-
-print("labels: ")
-    print((label.description))
-
+    for logo in logos:
+        print(logo.description)
+        
+detect_logos("add path here")
