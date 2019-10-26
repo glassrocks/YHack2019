@@ -1,6 +1,7 @@
 from google.cloud import vision
 import instaloader
 from flask import Flask, render_template, redirect, request, flash
+from jinja2 import Template
 import logosearch
 
 app = Flask(__name__)
