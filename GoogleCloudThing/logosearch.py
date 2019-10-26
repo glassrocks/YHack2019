@@ -51,7 +51,7 @@ def logo_find_uri(uri):
     response = client.logo_detection(image=image)
     logos = response.logo_annotations
 
-    logo_list = {}
+    """logo_list = {}
     logo_desc = []
     for logo in logos:
         if logo.description and logo.score > 0.7:
@@ -65,7 +65,20 @@ def logo_find_uri(uri):
     else:
         logo_list[uri] = logo_desc
         print(f"Logo dict: {logo_list}")
-        return logo_list
+        return logo_list"""
+    logo_desc = []
+    for logo in logos:
+        if logo.description and logo.score > 0.7:
+            logo_desc.append(logo.description)
+        else:
+            print("score too low! ommitting image")
+            return None
+    if not logos:
+        print('no logos found')
+        return None
+    else:
+        print(f"Tuple: {(uri, logo_desc)}")
+        return (uri, logo_desc)
 
 
 def instasearch(url):
