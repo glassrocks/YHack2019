@@ -81,7 +81,7 @@ def logo_find_uri(uri):
         return (uri, logo_desc)
 
 
-def instasearch(url):
+'''def instasearch(url):
     #insta_url = input("Enter the instagram url you would like to analyze:")
     insta_url = url
     insta_posts = instacrawl.find_posts(insta_url)
@@ -90,7 +90,26 @@ def instasearch(url):
         if not post.is_video:
             image_list.append(logo_find_uri(post.url))
             print("\n")
+    return image_list'''
+
+
+
+def instasearch(url):
+    #insta_url = input("Enter the instagram url you would like to analyze:")
+    insta_url = url
+    insta_posts = instacrawl.find_posts(insta_url)
+    image_list = []
+    user_id = None
+    for post in insta_posts:
+        if not post.is_video:
+            image_list.append(logo_find_uri(post.url))
+            print("\n")
+            user_id = post.owner_id
+    #if image_list:
+        #instacrawl.message_users([user_id], "Hey we found a logo from a company we're protesting on your profile")
     return image_list
+
+
 
     '''    
     image_folder = os.getcwd() + "/images/"

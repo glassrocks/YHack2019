@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+    <script src="/static/css/jquery-3.4.1.min.js"></script>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,17 +29,36 @@
           }
         </style>
         <!-- Custom styles for this template -->
+        
+        <link href="/static/css/loading.css" rel="stylesheet">
+        <link href="/static/css/album.css" rel="stylesheet">
         <link href="/static/css/signin.css" rel="stylesheet">
     </head>
     <body class="text-center">
+        
         <form class=form-signin action="/api/instasearch/" method="post" name="url">
-            <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+            <img class="mb-4" src="/static/images/ACT2.png" alt="" width="72" height="72">
             <h1 class="h3 mb-3 font-weight-normal">Search for Logos</h1>
             <label for="inputURL" class="sr-only">Instagram account name</label>
             <input type="text" name="inputURL" id="inputURL" class="form-control" placeholder="Instagram account name" required autofocus>
             <div class="checkbox mb-3"></div>
-            <button class="btn btn-lg btn-primary btn-block" input type="submit" onClick="submitRedirect(process());">Submit</button>
+            <button class="btn btn-lg btn-primary btn-block" input type="submit" onClick="show();">Submit</button>
             <p class="mt-5 mb-3 text-muted">&copy; HackJWU 2019</p>
         </form>
     </body>
+    <div class="loading-gif" id = "myDiv" style="display:none">
+        <img id = "myImage" src = "/static/css/spinner-loading.gif">
+    </div>
+    <div class="album py-5 bg-light">
+    <script type = "text/javascript">
+    function show() {
+        document.getElementById("myDiv").style.display="table";
+        //document.body.appendChild(img);
+        setTimeout("hide()", 60000);  // 60 seconds
+    }
+    function hide() {
+        document.getElementById("myDiv").style.display="none";
+    }
+    </script>
+    <script src="/static/css/jquery-3.4.1.min.js"></script>
 </html>
