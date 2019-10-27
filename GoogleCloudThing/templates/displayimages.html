@@ -67,24 +67,13 @@
 
   <section class="jumbotron text-center">
     <div class="container">
-      <script>
-        function process() {
-          var redirect = window.location.href + document.getElementById("inputURL").value;
-          alert(redirect);
-          return redirect;
-        }
-        function submitRedirect(redirect) {
-          alert("got submit redirect " + redirect);
-          window.location.replace("\"" + redirect + "\"");
-        }
-      </script>
       <form action="/api/instasearch/" method="post" name="url">
         <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Search for Logos</h1>
         <label for="inputURL" class="sr-only">Instagram account name</label>
         <input type="text" name="inputURL" id="inputURL" class="form-control" placeholder="Instagram account name" required autofocus>
         <div class="checkbox mb-3"></div>
-        <button class="btn btn-lg btn-primary btn-block" input type="submit" onClick="submitRedirect(process());">Submit</button>
+        <button class="btn btn-lg btn-primary btn-block" input type="submit">Submit</button>
         <p class="mt-5 mb-3 text-muted">&copy; HackJWU 2019</p>
       </form>
     </div>

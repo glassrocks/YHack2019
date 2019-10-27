@@ -6,8 +6,11 @@ import logosearch
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def hello_world():
+    if request.method == 'POST':
+        url = request.form.get('inputURL')
+        return redirect('/api/instasearch/' + url)
     return render_template('index.html')
 
 @app.route('/api/instasearch/', methods=['GET', 'POST'])
