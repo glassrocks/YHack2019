@@ -16,7 +16,7 @@ def find_posts(username):
     return profile.get_posts()
 
 def message_users(user_ids: list, message):
-    I_API = InstagramAPI("its_ian_costa", "1qaz2wsx")
+    I_API = InstagramAPI("its_ian_costa", "")
     I_API.login()  # login
     I_API.direct_message(message, user_ids)
 
