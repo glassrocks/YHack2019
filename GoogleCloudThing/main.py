@@ -12,13 +12,17 @@ def hello_world():
 
 @app.route('/api/instasearch/', methods=['GET', 'POST'])
 def renderpage():
+    if request.method == 'POST':
+        url = request.form.get('inputURL')
+        print(url)
+        return redirect('/api/instasearch/' + url)
+
+    print("got regular api")
     return render_template('table-template.html')
 
-@app.route('/api/instasearch/<url>', methods=['POST'])
+@app.route('/api/instasearch/<url>', methods=['GET', 'POST'])
 def apiinstaquery(url):
-    url = request.form['inputURL']
-    print(url)
-
+    print("got url api")
     logo_return = logosearch.instasearch(url)
     #filter out all None values 
     logo_return = [f for f in logo_return if f]
