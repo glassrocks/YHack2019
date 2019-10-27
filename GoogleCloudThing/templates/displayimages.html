@@ -67,14 +67,14 @@
 
   <section class="jumbotron text-center">
     <div class="container">
-      <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Search for Logos</h1>
-      <label for="inputURL" class="sr-only">Instagram account name</label>
-      <input type="url" id="inputURL" class="form-control" placeholder="Instagram account name" required autofocus>
-      <div class="checkbox mb-3">
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-      <p class="mt-5 mb-3 text-muted">&copy; HackJWU 2019</p>
+      <form action="/api/instasearch/" method="post" name="url">
+        <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Search for Logos</h1>
+        <label for="inputURL" class="sr-only">Instagram account name</label>
+        <input type="text" id="inputURL" class="form-control" placeholder="Instagram account name" required autofocus>
+        <div class="checkbox mb-3"></div>
+        <button class="btn btn-lg btn-primary btn-block" input type="submit">Submit</button>
+        <p class="mt-5 mb-3 text-muted">&copy; HackJWU 2019</p>
     </div>
   </section>
 

@@ -10,12 +10,15 @@ app = Flask(__name__)
 def hello_world():
     return render_template('index.html')
 
-@app.route('/api/instasearch/', methods=['GET'])
+@app.route('/api/instasearch/', methods=['GET', 'POST'])
 def renderpage():
     return render_template('table-template.html')
 
-@app.route('/api/instasearch/<url>', methods=['GET', 'POST'])
+@app.route('/api/instasearch/<url>', methods=['POST'])
 def apiinstaquery(url):
+    url = request.form['inputURL']
+    print(url)
+
     logo_return = logosearch.instasearch(url)
     #filter out all None values 
     logo_return = [f for f in logo_return if f]
