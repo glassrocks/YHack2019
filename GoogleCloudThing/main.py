@@ -10,6 +10,10 @@ app = Flask(__name__)
 def hello_world():
     return render_template('index.html')
 
+@app.route('/api/instasearch/', methods=['GET'])
+def renderpage():
+    return render_template('table-template.html')
+
 @app.route('/api/instasearch/<url>', methods=['GET', 'POST'])
 def apiinstaquery(url):
     logo_return = logosearch.instasearch(url)

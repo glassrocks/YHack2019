@@ -67,10 +67,14 @@
 
   <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">Instagram profile:</h1>
-        <a href="#" class="btn btn-primary my-2">Main call to action</a>
-        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-      </p>
+      <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Search for Logos</h1>
+      <label for="inputURL" class="sr-only">Instagram account name</label>
+      <input type="url" id="inputURL" class="form-control" placeholder="Instagram account name" required autofocus>
+      <div class="checkbox mb-3">
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+      <p class="mt-5 mb-3 text-muted">&copy; HackJWU 2019</p>
     </div>
   </section>
 
@@ -80,17 +84,13 @@
         <br>
           {% for logo in table %}
             {% set url = logo[0] %}
-            
+            {% set logo_desc = ", ".join(logo[1]) %}
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
                   <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ url }}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"></svg>
                   <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text">Logos found: {{ logo_desc }}</p>
                     <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                      </div>
                     </div>
                   </div>
                 </div>
